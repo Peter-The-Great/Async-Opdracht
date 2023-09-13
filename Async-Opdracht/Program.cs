@@ -46,7 +46,7 @@
     }
     public class Program
     {
-        static async void VoegBoekToe()
+        static async Task VoegBoekToe()
         {
             Console.WriteLine("Geef de titel op: ");
             var titel = Console.ReadLine();
@@ -79,6 +79,7 @@
             {
                 Console.WriteLine("Het boek dat het beste overeenkomt met de beschrijving is: ");
                 Console.WriteLine(beste.Titel);
+                Console.WriteLine("");
             }
             else
             {
@@ -110,11 +111,13 @@
                 Console.WriteLine("q) Quit");
                 key = Console.ReadLine();
                 if (key == "+")
-                    VoegBoekToe();
+                    await VoegBoekToe();
                 else if (key == "z")
                     await ZoekBoek();
                 else if (key == "b")
                     await Backup();
+                else if (key == "q")
+                    Console.WriteLine("Tot ziens!");
                 else Console.WriteLine("Ongeldige invoer!");
             }
         }
